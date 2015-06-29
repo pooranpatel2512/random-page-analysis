@@ -76,7 +76,7 @@ class RandomPageAnalyzer extends Actor {
   private def storeResult(pageUrl: String, statusCode: StatusCode) = {
     val pageDomainName = pageUrl.replaceFirst("http://", "").replaceFirst("www.", "")
     val result: RandomPageUrlAndResponseCode = RandomPageUrlAndResponseCode(pageDomainName, statusCode)
-    analyzedPageResults = analyzedPageResults.+:(result)
+    analyzedPageResults = result :: analyzedPageResults
   }
 }
 
